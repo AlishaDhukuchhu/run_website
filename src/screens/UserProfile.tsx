@@ -1,0 +1,266 @@
+export default function UserProfile() {
+  return (
+    <div dangerouslySetInnerHTML={{ __html: `
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-lg py-md max-w-full bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-primary/10">
+<div class="text-headline-md font-headline-md font-black text-primary tracking-tighter">RUN_INTELLIGENCE</div>
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="/route-discovery">Explore</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="/dashboard">Live Map</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="/events-groups">Events</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="/route-discovery">Routes</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="/community-feed">Community</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="/analytics">Analytics</a>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:block">
+<a href="/create-account" class="bg-primary-container text-on-primary-container px-lg py-sm rounded-xl font-label-bold active:scale-95 transition-transform" style="display:inline-block;text-align:center;">Get Started</a>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a fit, athletic runner in high-tech moisture-wicking gear. The lighting is dramatic with cool blue rim lights, reflecting a high-performance sports aesthetic. The background is a blurred high-end fitness studio with neon accents, maintaining a dark mode corporate premium feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-bTzEItO5leuI5r8gxuI8CPDH6Jyq18ybPAL7bMXsv6sB1SDfMbRHcuon7ahIpdx4z8t1bzeu0q8mZk9fT-40HhjeQlYZS8PrrWr70JaPjVbH_SBdR9B8WNVVgygjIYSZmKuztJv3VF-PdpPpsUYFCZHeSSiNNWXnmSzzH4fX3OZtANdk-Rgdm88csqoOA6PovMDI4xRxOUIY2X4j6EL7qIXknIAxzH20OiAXFvh1POViD-rURljSJzg34uq8gT2NKEOeBARskBk"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Grid -->
+<main class="pt-32 pb-xl px-container-margin max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="mb-xl flex flex-col md:flex-row md:items-end justify-between gap-lg">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary">Athlete Profile</h1>
+<p class="text-on-surface-variant text-body-lg">Alex 'Sonic' Rivera • Pro Member since 2022</p>
+</div>
+<div class="flex gap-md">
+<div class="glass-panel px-lg py-md rounded-xl flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<div>
+<p class="text-xs text-on-surface-variant font-label-bold uppercase">Current Streak</p>
+<p class="text-headline-md font-headline-md text-secondary">14 Days</p>
+</div>
+</div>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: Primary Stats & Comfort -->
+<div class="lg:col-span-8 space-y-lg">
+<!-- Bento Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="glass-panel glass-card-gradient p-lg rounded-xl glow-active">
+<p class="text-on-surface-variant font-label-bold mb-xs">LIFETIME DISTANCE</p>
+<h2 class="text-stats-numeric font-stats-numeric text-primary">2,840.4</h2>
+<p class="text-sm text-on-surface-variant">Kilometers</p>
+</div>
+<div class="glass-panel glass-card-gradient p-lg rounded-xl">
+<p class="text-on-surface-variant font-label-bold mb-xs">TOTAL ELEVATION</p>
+<h2 class="text-stats-numeric font-stats-numeric text-tertiary">42,150</h2>
+<p class="text-sm text-on-surface-variant">Meters Gained</p>
+</div>
+<div class="glass-panel glass-card-gradient p-lg rounded-xl">
+<p class="text-on-surface-variant font-label-bold mb-xs">AVG. PACE</p>
+<h2 class="text-stats-numeric font-stats-numeric text-secondary">4'52"</h2>
+<p class="text-sm text-on-surface-variant">min / km</p>
+</div>
+</div>
+<!-- Weather & Comfort Widget -->
+<div class="glass-panel p-lg rounded-xl relative overflow-hidden">
+
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-xl">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Running Comfort Score</h3>
+<div class="flex items-center gap-xl">
+<div class="relative w-32 h-32">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-highest" cx="64" cy="64" fill="transparent" r="56" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-secondary" cx="64" cy="64" fill="transparent" r="56" stroke="currentColor" stroke-dasharray="351.8" stroke-dashoffset="35.1" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-headline-md font-stats-numeric">90</span>
+</div>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-sm">thermostat</span>
+<p class="text-on-surface-variant">Optimal Temp: 18°C</p>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-sm">water_drop</span>
+<p class="text-on-surface-variant">Humidity: 45%</p>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-sm">air</span>
+<p class="text-on-surface-variant">Wind: 4km/h SE</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high/50 p-lg rounded-xl border border-white/5">
+<h4 class="font-label-bold text-primary mb-sm">BEST TIME TO RUN</h4>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-tertiary text-3xl">light_mode</span>
+<div>
+<p class="text-headline-md font-headline-md">18:45 – 20:00</p>
+<p class="text-sm text-on-surface-variant">Cool evening breeze, low pollen count.</p>
+</div>
+</div>
+<button class="mt-md w-full py-sm rounded-lg bg-surface-container-highest border border-outline-variant text-on-surface font-label-bold hover:bg-surface-bright transition-colors">
+                                Add to Calendar
+                            </button>
+</div>
+</div>
+</div>
+<!-- Personal Goals Section -->
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Personal Goals</h3>
+<div class="space-y-md">
+<div class="glass-panel p-lg rounded-xl border-l-4 border-primary">
+<div class="flex justify-between items-center mb-sm">
+<p class="font-label-bold text-on-surface">Monthly Distance Goal</p>
+<p class="text-sm font-stats-numeric text-primary">164 / 200 km</p>
+</div>
+<div class="w-full bg-surface-container-highest h-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[82%]"></div>
+</div>
+</div>
+<div class="glass-panel p-lg rounded-xl border-l-4 border-secondary">
+<div class="flex justify-between items-center mb-sm">
+<p class="font-label-bold text-on-surface">Weekly Vertical Gain</p>
+<p class="text-sm font-stats-numeric text-secondary">850 / 1,000 m</p>
+</div>
+<div class="w-full bg-surface-container-highest h-3 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[85%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Activity & Training Profile -->
+<div class="lg:col-span-4 space-y-lg">
+<!-- Training Load -->
+<div class="glass-panel p-lg rounded-xl">
+<h3 class="font-label-bold text-on-surface-variant mb-md uppercase tracking-wider">Training Load</h3>
+<div class="h-48 w-full flex items-end justify-between gap-base px-base">
+<div class="bg-surface-container-highest w-full rounded-t-sm h-[40%] hover:bg-primary transition-colors cursor-pointer"></div>
+<div class="bg-surface-container-highest w-full rounded-t-sm h-[65%] hover:bg-primary transition-colors cursor-pointer"></div>
+<div class="bg-primary w-full rounded-t-sm h-[90%]"></div>
+<div class="bg-surface-container-highest w-full rounded-t-sm h-[50%] hover:bg-primary transition-colors cursor-pointer"></div>
+<div class="bg-surface-container-highest w-full rounded-t-sm h-[75%] hover:bg-primary transition-colors cursor-pointer"></div>
+<div class="bg-surface-container-highest w-full rounded-t-sm h-[30%] hover:bg-primary transition-colors cursor-pointer"></div>
+<div class="bg-surface-container-highest w-full rounded-t-sm h-[60%] hover:bg-primary transition-colors cursor-pointer"></div>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant mt-sm font-label-bold">
+<span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
+</div>
+<div class="mt-lg pt-lg border-t border-white/10 flex justify-between">
+<span class="text-sm text-on-surface-variant">Fitness Level:</span>
+<span class="text-sm text-secondary font-bold">OPTIMAL</span>
+</div>
+</div>
+<!-- Recent Activity Feed -->
+<div class="glass-panel rounded-xl overflow-hidden">
+<div class="p-lg border-b border-white/10 flex justify-between items-center">
+<h3 class="font-label-bold text-on-surface uppercase">Recent Activity</h3>
+<a class="text-xs text-primary font-label-bold hover:underline" href="#">View All</a>
+</div>
+<div class="divide-y divide-white/5">
+<div class="p-lg hover:bg-white/5 transition-colors cursor-pointer">
+<div class="flex items-center gap-md mb-xs">
+<span class="material-symbols-outlined text-primary">route</span>
+<p class="font-label-bold text-on-surface">Evening City Loop</p>
+</div>
+<div class="flex justify-between text-sm text-on-surface-variant">
+<span>Yesterday • 12.4 km</span>
+<span class="font-stats-numeric">58:12</span>
+</div>
+</div>
+<div class="p-lg hover:bg-white/5 transition-colors cursor-pointer">
+<div class="flex items-center gap-md mb-xs">
+<span class="material-symbols-outlined text-tertiary">terrain</span>
+<p class="font-label-bold text-on-surface">Canyon Trail Run</p>
+</div>
+<div class="flex justify-between text-sm text-on-surface-variant">
+<span>Oct 24 • 8.2 km</span>
+<span class="font-stats-numeric">45:30</span>
+</div>
+</div>
+<div class="p-lg hover:bg-white/5 transition-colors cursor-pointer">
+<div class="flex items-center gap-md mb-xs">
+<span class="material-symbols-outlined text-secondary">electric_bolt</span>
+<p class="font-label-bold text-on-surface">Interval Sprints</p>
+</div>
+<div class="flex justify-between text-sm text-on-surface-variant">
+<span>Oct 22 • 5.0 km</span>
+<span class="font-stats-numeric">22:15</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Shoe Tracker -->
+<div class="glass-panel p-lg rounded-xl glass-card-gradient">
+<h3 class="font-label-bold text-on-surface-variant mb-md uppercase tracking-wider">Gear Lifespan</h3>
+<div class="flex items-center gap-lg">
+<div class="w-16 h-16 rounded-xl bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">nordic_walking</span>
+</div>
+<div class="flex-1">
+<p class="font-label-bold">Nike Air Zoom Pegasus 40</p>
+<p class="text-xs text-on-surface-variant">325km / 600km</p>
+<div class="mt-sm w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[54%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full px-xl py-xl grid grid-cols-1 md:grid-cols-4 gap-lg bg-surface-container-lowest border-t border-outline-variant mt-24">
+<div class="md:col-span-1">
+<div class="text-headline-md font-headline-md font-black text-primary mb-md">RUN_INTELLIGENCE</div>
+<p class="text-on-surface-variant text-body-md leading-relaxed">© 2024 RUN_INTELLIGENCE. Precision Performance Tracking.</p>
+</div>
+<div class="space-y-sm">
+<h5 class="text-on-surface font-label-bold uppercase text-xs mb-md">Platform</h5>
+<p class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">API Docs</p>
+<p class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Live Map</p>
+<p class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Support</p>
+</div>
+<div class="space-y-sm">
+<h5 class="text-on-surface font-label-bold uppercase text-xs mb-md">Company</h5>
+<p class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">About Us</p>
+<p class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Careers</p>
+<p class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Press</p>
+</div>
+<div class="space-y-sm">
+<h5 class="text-on-surface font-label-bold uppercase text-xs mb-md">Legal</h5>
+<p class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Privacy Policy</p>
+<p class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Terms of Service</p>
+<p class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Cookie Settings</p>
+</div>
+</footer>
+<!-- Mobile Bottom Nav -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 glass-panel border-t border-white/10 px-lg py-sm flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-xs text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-label-bold">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-label-bold">Explore</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-[10px] font-label-bold">Record</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[10px] font-label-bold">Social</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-label-bold">Settings</span>
+</button>
+</div>
+
+` }} />
+  );
+}

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RunRadar | Elite Navigation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(23, 31, 51, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(74, 225, 118, 0.3);
+        }
+        .route-path {
+            filter: drop-shadow(0 0 4px #2563eb);
+        }
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#2d3449",
+                      "on-error": "#690005",
+                      "secondary-fixed-dim": "#4ae176",
+                      "background": "#0b1326",
+                      "surface-bright": "#31394d",
+                      "surface-container": "#171f33",
+                      "surface-container-high": "#222a3d",
+                      "on-tertiary": "#472a00",
+                      "on-secondary-container": "#004119",
+                      "tertiary-container": "#996100",
+                      "on-surface-variant": "#c3c6d7",
+                      "secondary-fixed": "#6bff8f",
+                      "on-tertiary-container": "#ffeedd",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "tertiary-fixed": "#ffddb8",
+                      "on-error-container": "#ffdad6",
+                      "tertiary": "#ffb95f",
+                      "inverse-on-surface": "#283044",
+                      "surface-container-lowest": "#060e20",
+                      "surface-container-low": "#131b2e",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "surface": "#0b1326",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "on-secondary-fixed": "#002109",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "outline": "#8d90a0",
+                      "surface-tint": "#b4c5ff",
+                      "on-primary": "#002a78",
+                      "inverse-primary": "#0053db",
+                      "surface-dim": "#0b1326",
+                      "outline-variant": "#434655",
+                      "on-secondary-fixed-variant": "#005321",
+                      "on-tertiary-fixed": "#2a1700",
+                      "secondary-container": "#00b954",
+                      "secondary": "#4ae176",
+                      "inverse-surface": "#dae2fd",
+                      "error": "#ffb4ab",
+                      "on-secondary": "#003915",
+                      "surface-container-highest": "#2d3449",
+                      "error-container": "#93000a",
+                      "on-background": "#dae2fd",
+                      "on-primary-container": "#eeefff",
+                      "on-surface": "#dae2fd",
+                      "primary-fixed": "#dbe1ff",
+                      "primary-container": "#2563eb",
+                      "primary": "#b4c5ff",
+                      "on-primary-fixed": "#00174b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "md": "16px",
+                      "xl": "40px",
+                      "gutter": "16px",
+                      "container-margin": "20px",
+                      "base": "4px",
+                      "sm": "8px",
+                      "xs": "4px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "stats-numeric": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "label-bold": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "stats-numeric": ["36px", {"lineHeight": "1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "label-bold": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen overflow-x-hidden selection:bg-primary/30">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container/80 backdrop-blur-xl border-b border-white/10 shadow-md">
+<div class="flex justify-between items-center px-lg py-md max-w-7xl mx-auto">
+<span class="font-headline-md text-headline-md font-bold text-primary">RunRadar</span>
+<div class="flex items-center gap-md">
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-high border border-outline-variant hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-secondary neon-glow" data-alt="A professional headshot of a marathon runner with a focused expression, wearing high-tech athletic gear. The background is a blurred cityscape at twilight with electric blue and neon green ambient lighting to match the RunRadar aesthetic. The image is crisp, with high contrast and a premium editorial feel." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCM-Xc9Kbnv5M0r5sS46AzCEq1dsX9lCh9A2X-hpZZ_IatsidJFLLvK-pUYMQv9J8bWEF-z4spogG3kapn1ExbBnxMvdiTqbOKP5SwpsCGFEE2Q1RSA7Tu5UzlHvOOblPRqjUs87xvk836tGpf4tDHmJvO6OgFx3HQ841Ju_I4eGqyfXEZoKIIfubZkqpYqulsOJzR0QkigG_W7UAaxECi0KmyiGcN3tXTr8lrYwGPQ87euKmnylIUME92qioIQXzAXEuvNKNyfCYQ')"></div>
+</div>
+</div>
+</header>
+<!-- Main Canvas (Map View) -->
+<main class="relative pt-16 pb-24 min-h-screen">
+<!-- Live Map Background -->
+<div class="fixed inset-0 z-0">
+<div class="absolute inset-0 bg-[#0b1326] flex items-center justify-center overflow-hidden">
+<div class="w-full h-full opacity-60 grayscale brightness-75 contrast-125" data-alt="A detailed satellite-style map of a dense urban environment at night, featuring glowing electric blue arterial roads and neon green highlights for parks. The perspective is top-down and technical, resembling a high-end GPS dashboard with subtle topographical lines and grid overlays. The overall mood is futuristic and data-driven." data-location="San Francisco" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDMJPNkGRz52Ozdti1eZaBdLGu2NYRPfMiiVg1mAPZw_Gc3_ybFrH6GW-60HNZ5kg0eoHJ4Ameb7Q6u-nLfrehcl8sFEeqs6lReBFv7Pn-En9Tsx7PpOz7EhTqYtkdE3wUmY_70Gaj9z13PyZxGv2a2OlM84Y6beDBfDfpeBFlAdMIvV6UFWj9xuJ920jbGtULONpDk2Rc9XDpZXkKzVjZ6jub5m6WaBQChD2E5z9D9HEcsluN6mLcjnTzReaCyJebuTaAnciWz4S8')"></div>
+<!-- Animated Shader Overlay for Atmosphere -->
+
+<!-- Mock Map UI Elements -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-secondary rounded-full ring-8 ring-secondary/20 animate-pulse neon-glow"></div>
+<svg class="absolute inset-0 w-full h-full pointer-events-none" viewbox="0 0 400 800">
+<path class="route-path" d="M 200 400 L 220 380 L 260 385 L 280 340" fill="none" stroke="#2563eb" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+</div>
+</div>
+<!-- Alert Feed (Floating Overlay) -->
+<section class="relative z-10 px-md pt-lg flex flex-col gap-sm">
+<div class="glass-panel rounded-xl p-md flex items-center gap-md animate-fade-in transition-all active:scale-95">
+<div class="w-10 h-10 rounded-lg bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-error">warning</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-bold text-label-bold text-on-surface uppercase tracking-wider">Pace Alert</h3>
+<p class="text-on-surface-variant text-sm">Below target pace: -15s/km</p>
+</div>
+<button class="text-on-surface-variant">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="glass-panel rounded-xl p-md flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-bold text-label-bold text-on-surface uppercase tracking-wider">Personal Best</h3>
+<p class="text-on-surface-variant text-sm">Estimated 5K Finish: 18:42</p>
+</div>
+</div>
+</section>
+<!-- Command Center (One-handed Controls) -->
+<section class="fixed bottom-24 inset-x-0 z-20 px-md flex flex-col gap-md">
+<!-- Bento-style Dash Controls -->
+<div class="grid grid-cols-2 gap-md">
+<div class="glass-panel rounded-xl p-md flex flex-col items-center justify-center aspect-square text-center">
+<span class="font-stats-numeric text-stats-numeric text-primary">4.8</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase text-xs mt-xs">Distance (km)</span>
+</div>
+<div class="glass-panel rounded-xl p-md flex flex-col items-center justify-center aspect-square text-center">
+<span class="font-stats-numeric text-stats-numeric text-secondary">162</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase text-xs mt-xs">Heart Rate (bpm)</span>
+</div>
+</div>
+<!-- Route Planner / Radius Selector -->
+<div class="glass-panel rounded-2xl p-lg space-y-md">
+<div class="flex justify-between items-center">
+<h4 class="font-label-bold text-label-bold text-on-surface">RADIAL DISCOVERY</h4>
+<span class="text-secondary font-stats-numeric text-lg" id="radius-val">5.0km</span>
+</div>
+<div class="relative py-md">
+<input class="w-full h-2 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-secondary transition-all" id="radius-slider" max="25" min="1" type="range" value="5"/>
+<div class="flex justify-between mt-2 text-[10px] text-on-surface-variant font-bold tracking-widest">
+<span>1KM</span>
+<span>25KM</span>
+</div>
+</div>
+<div class="flex gap-sm overflow-x-auto no-scrollbar pb-xs">
+<button class="flex-none px-md py-sm bg-primary-container text-on-primary-container rounded-full font-label-bold text-xs whitespace-nowrap">Hill Sprints</button>
+<button class="flex-none px-md py-sm bg-surface-container-high border border-outline-variant rounded-full font-label-bold text-xs whitespace-nowrap">Flat Loop</button>
+<button class="flex-none px-md py-sm bg-surface-container-high border border-outline-variant rounded-full font-label-bold text-xs whitespace-nowrap">Trail Run</button>
+<button class="flex-none px-md py-sm bg-surface-container-high border border-outline-variant rounded-full font-label-bold text-xs whitespace-nowrap">Paved Track</button>
+</div>
+</div>
+</section>
+<!-- Event Discovery Drawer Peek -->
+<section class="fixed bottom-0 inset-x-0 z-30 pt-md pb-32">
+<!-- Drawer Handle -->
+<div class="mx-auto w-12 h-1.5 bg-surface-variant rounded-full mb-md opacity-50"></div>
+</section>
+</main>
+<!-- Bottom Nav Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface-container/90 backdrop-blur-xl border-t border-white/5 pb-safe">
+<div class="flex justify-around items-center h-20 px-md">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant group">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">explore</span>
+<span class="font-label-bold text-[10px]">EXPLORE</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-bold text-[10px] border-b-2 border-primary pb-0.5">LIVE MAP</span>
+</button>
+<!-- Central FAB -->
+<div class="relative -top-6">
+<button class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-xl border-4 border-background active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'wght' 700;">play_arrow</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant group">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">calendar_month</span>
+<span class="font-label-bold text-[10px]">EVENTS</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant group">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">insights</span>
+<span class="font-label-bold text-[10px]">ANALYTICS</span>
+</button>
+</div>
+</nav>
+<!-- Floating Event Card (Peek from bottom) -->
+<div class="fixed bottom-24 inset-x-0 z-40 px-md transform transition-transform duration-500 translate-y-full hover:translate-y-0" id="event-peek">
+<div class="glass-panel rounded-2xl overflow-hidden shadow-2xl flex border-t-2 border-secondary">
+<div class="w-24 h-full relative" data-alt="Close up photography of professional running shoes hitting asphalt at high speed with motion blur. The setting is an urban race event at dawn, with cool morning light and distant glowing race markers. High performance aesthetic with deep saturation and sharp details." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdnKR4NSSQkck7NFlr4n6MnGeuNOWzcmqy2zZoQKcPB2uMWWigA84AMnIEcaL9Bdt4iUSHwtSSjQiArr4McXzwYthPKhM5cOvd0nnYqt94Oc9T8fyACYoQIp7p8GnKJxmgOF9pcPQaIoVMWO-RVCai7Kvx_07LEhHCTDdILSk5OYcxx4I-PIdLQBfYy4dYWSG2JAXdN81E3T_-65L2cEWuREMyue-700TxLGjXIruJtOu-iXrfjLyivG42M946YaJKoJi4JWBVh60')"></div>
+<div class="p-md flex-1">
+<span class="bg-secondary/20 text-secondary text-[10px] font-bold px-2 py-0.5 rounded-full">URBAN ELITE SERIES</span>
+<h4 class="font-label-bold text-sm mt-1">Midnight Marathon: San Francisco</h4>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">schedule</span>
+<span class="text-xs text-on-surface-variant">Starts in 4h 20m</span>
+</div>
+</div>
+<div class="p-md flex items-center">
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+        // Micro-interactions and UI Logic
+        const radiusSlider = document.getElementById('radius-slider');
+        const radiusVal = document.getElementById('radius-val');
+        const eventPeek = document.getElementById('event-peek');
+
+        radiusSlider.addEventListener('input', (e) => {
+            radiusVal.innerText = parseFloat(e.target.value).toFixed(1) + 'km';
+            
+            // Interaction visual feedback
+            radiusSlider.classList.add('neon-glow');
+            setTimeout(() => radiusSlider.classList.remove('neon-glow'), 500);
+        });
+
+        // Simulating the event drawer peeking after a delay
+        setTimeout(() => {
+            eventPeek.classList.remove('translate-y-full');
+            eventPeek.classList.add('translate-y-16'); // Show a small sliver
+        }, 1500);
+
+        // Map Interaction Placeholder
+        document.body.addEventListener('touchstart', (e) => {
+            // Future logic for haptic feedback or visual ripples
+        });
+
+        // Page visibility logic for nav
+        window.addEventListener('scroll', () => {
+           // Subtle scroll logic for a mobile app vibe
+        });
+    </script>
+</body></html>

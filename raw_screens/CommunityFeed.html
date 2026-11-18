@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RunRadar | Community Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#996100",
+                    "surface-bright": "#31394d",
+                    "on-primary": "#002a78",
+                    "inverse-on-surface": "#283044",
+                    "surface-container-highest": "#2d3449",
+                    "on-surface": "#dae2fd",
+                    "inverse-surface": "#dae2fd",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "error": "#ffb4ab",
+                    "on-primary-fixed": "#00174b",
+                    "secondary-container": "#00b954",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "surface-dim": "#0b1326",
+                    "outline": "#8d90a0",
+                    "on-secondary-fixed": "#002109",
+                    "on-secondary-container": "#004119",
+                    "on-primary-container": "#eeefff",
+                    "error-container": "#93000a",
+                    "tertiary": "#ffb95f",
+                    "primary": "#b4c5ff",
+                    "surface-container": "#171f33",
+                    "on-tertiary-container": "#ffeedd",
+                    "surface-variant": "#2d3449",
+                    "on-background": "#dae2fd",
+                    "primary-fixed": "#dbe1ff",
+                    "on-secondary": "#003915",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-secondary-fixed-variant": "#005321",
+                    "tertiary-fixed": "#ffddb8",
+                    "surface-container-lowest": "#060e20",
+                    "on-surface-variant": "#c3c6d7",
+                    "inverse-primary": "#0053db",
+                    "surface-container-low": "#131b2e",
+                    "secondary-fixed-dim": "#4ae176",
+                    "on-tertiary-fixed": "#2a1700",
+                    "secondary-fixed": "#6bff8f",
+                    "on-error": "#690005",
+                    "secondary": "#4ae176",
+                    "surface": "#0b1326",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#434655",
+                    "on-tertiary": "#472a00",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "primary-container": "#2563eb",
+                    "background": "#0b1326",
+                    "surface-tint": "#b4c5ff",
+                    "surface-container-high": "#222a3d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "xl": "40px",
+                    "sm": "8px",
+                    "gutter": "16px",
+                    "base": "4px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "container-margin": "20px"
+            },
+            "fontFamily": {
+                    "label-bold": ["Inter"],
+                    "stats-numeric": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-bold": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "stats-numeric": ["36px", {"lineHeight": "1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass {
+            background: rgba(45, 52, 73, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(74, 225, 118, 0.3);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-lg py-md max-w-full bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-primary/10">
+<div class="flex items-center gap-xl">
+<span class="text-headline-md font-headline-md font-black text-primary tracking-tighter">RUN_INTELLIGENCE</span>
+<div class="hidden md:flex gap-lg">
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="#">Explore</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="#">Live Map</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="#">Events</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="#">Routes</a>
+<a class="text-primary font-label-bold border-b-2 border-primary pb-1" href="#">Community</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="#">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-high border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary text-on-surface" placeholder="Search routes..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-full font-label-bold hover:scale-105 transition-transform active:scale-95">Get Started</button>
+</div>
+</nav>
+<main class="pt-24 pb-12 px-container-margin max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Sidebar: Trending Routes -->
+<aside class="hidden lg:block lg:col-span-3 space-y-lg">
+<section class="glass p-lg rounded-xl">
+<h2 class="text-label-bold font-label-bold text-primary mb-md flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                    TRENDING ROUTES
+                </h2>
+<div class="space-y-md">
+<div class="group cursor-pointer">
+<div class="h-32 rounded-lg mb-2 overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="A cinematic overhead shot of a winding asphalt road through a lush, misty forest at dawn. The lighting is cool and atmospheric with soft morning rays filtering through trees, creating a professional outdoor photography aesthetic that matches a dark-mode elite runner interface." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBOIZP8S_sHFclhSw-Qgz9_Fj9_shnEnYtW8jjlpHkVcZh7sdNAC5uupJ8dADnm-Rlxa53RNqHnWJMqTeVvrcLgPdFb3VU55dUyZVXZYGrGtdf-sy2Vya8kPVlelBDuKFj-3doQUv7O8I7zo27Chd136qFy54Lk5rwXJd4yYEw7uOedo1UxEPBqpTEHGkYuEJncmNzHeEz3oLJS-6v53pOIrBDAj-IDE7KJsKJrZ0R57GajylaH3VIjBiyBUqVn71BqtjIufTXT_1c')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<span class="absolute bottom-2 left-2 text-label-bold font-label-bold text-white">Skyline Ridge Loop</span>
+</div>
+<div class="flex justify-between items-center px-1">
+<span class="text-xs text-on-surface-variant">8.2 km • 140m elev.</span>
+<span class="text-secondary text-xs font-label-bold">+12% Activity</span>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="h-32 rounded-lg mb-2 overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="A wide-angle landscape photo of a coastal running path at sunset. The sky is filled with deep oranges and purples, reflecting off the ocean. A lone silhouette of a runner is visible in the distance, emphasizing a sense of achievement and elite performance in a dark-themed UI." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRS-KEmxOWPs2PCDXfCX9043ZB5XTn381QalLkU6_ykAe7sqy25JwPpyLIvlq5R3t-zpe7u_QlKqGzJuDUNCL_ridc6bTzLPNAPcIve80e4EiVOcW_qiim0sGDKsdslF9okCjaOsVXtXVB5aUF1Dv9HzOKmsHLwBub3jgXEjibcoubnHYgykqES6ELbzcRc4DCQF9b8zs_t-F5xTJgtDCvgmPDHrqpLIVLeGd17BqqkY_wsXjiS8-abthA3pno_7UcqfMV4jtUGIk')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<span class="absolute bottom-2 left-2 text-label-bold font-label-bold text-white">Harbor Coastal Dash</span>
+</div>
+<div class="flex justify-between items-center px-1">
+<span class="text-xs text-on-surface-variant">5.5 km • Flat</span>
+<span class="text-secondary text-xs font-label-bold">+8% Activity</span>
+</div>
+</div>
+</div>
+</section>
+<section class="glass p-lg rounded-xl">
+<h2 class="text-label-bold font-label-bold text-primary mb-md flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">military_tech</span>
+                    WEEKLY CHALLENGES
+                </h2>
+<div class="bg-surface-container-high/50 p-md rounded-lg border border-primary/20">
+<p class="text-body-md font-bold text-on-surface mb-1">Mountain Goat</p>
+<p class="text-xs text-on-surface-variant mb-3">Ascend 500m this week</p>
+<div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full neon-glow" style="width: 75%"></div>
+</div>
+<p class="text-[10px] text-right mt-1 text-secondary">375m / 500m</p>
+</div>
+</section>
+</aside>
+<!-- Main Feed -->
+<div class="lg:col-span-6 space-y-lg">
+<!-- Create Post -->
+<div class="glass p-md rounded-xl flex items-center gap-md">
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a focused male athlete in high-end running gear, looking directly into the camera with a determined expression. The background is a blurred urban athletic track at dusk, utilizing a dark color palette with electric blue lighting accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD53rdko7OuIjGSNvJFQKTIAyYI0yrXp_7RgM1FXtTKwthNnF_UeRGmICd7l0dnZAxH5_aq9Ylywg0K0pbZULEJIZNqbGHZWsW5mQuh8gqcu8eL062PzN8sVEikLu9JMSqiFgGW2Kpo3e9R6fbpd_hAbdTw3EiB0sKmCt_Za6iIISFHH_uO3SzNiIZbKUAVhYgZMW2DiFASbUoJl4GHJRqbOwGGc69Z7ZWxWhW27XsHUxESSoiADNy6-AsaN-t-WnL0BX9dWmNAxKU"/>
+</div>
+<button class="bg-surface-container-high/50 hover:bg-surface-container-high text-on-surface-variant text-left px-lg py-sm rounded-full grow text-body-md transition-colors">
+                    Share your route or achievement...
+                </button>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">add_a_photo</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">map</span>
+</div>
+</div>
+<!-- Feed Item 1: Discovery -->
+<article class="glass rounded-xl overflow-hidden shadow-2xl shadow-black/40 border-outline-variant/30">
+<div class="p-lg flex justify-between items-center">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full border-2 border-secondary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a female trail runner with a bright, energetic smile, wearing high-tech reflective running sunglasses and a moisture-wicking headband. The lighting is bright but high-contrast, fitting a modern corporate performance aesthetic with neon green color accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW9k1BZJkWcDeTCXVZgcv26phKUNVZ05xaluShjYsLQkhWshHKCAaDWm1f0LOGRdMVsipmetjZWdrcQubjNM38EicE2CZfDmvZ4TPWwQRcw0v-vRriDTpxsb-V9v5vZ7zcPTSIhNIVy3zX6bf-SESz87LTvpF8SD_7KWB0sDm7_8T2OLczzqKFjCZEXbWaepndUD1fBGISM807lLEg5Yio4CC8b3b8PDS7KAEr5xfT2f8TKiQLW3ooP7SJkFtfHrhxta0M0jYnxcU"/>
+</div>
+<div>
+<p class="text-body-md font-bold text-on-surface leading-tight">Sarah "Trailblazer" Jenkins</p>
+<p class="text-xs text-on-surface-variant">discovered a new route in <span class="text-primary">Emerald Valley</span> • 2h ago</p>
+</div>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant">more_horiz</button>
+</div>
+<div class="px-lg pb-md">
+<p class="text-body-lg text-on-surface mb-md">Finally found the secret connector trail behind the old observatory! Perfectly technical with some killer vertical gain at the end. 🏔️</p>
+</div>
+<div class="relative h-96 group cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A breathtaking first-person perspective shot of a trail runner's shoes hitting a rugged mountain path at golden hour. The landscape features dramatic peaks and a clear blue sky. The visual style is crisp, high-end athletic photography with vibrant saturation and deep shadows, ideal for an elite sports dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbG2GQt8oM2NxkNK9BbzfKhJHlq9Mv4PvlHCtSdRoi0z9GpQpWPAjVvZPyBHVU_6Qp7Uit4PWMRHvyxY0Fi6UIJjsJfbY-ka6cqmVTFYYlrWiZAFgWwTDo6enxlock-VyGYxWcxEGK5_ydyF_xCVjw7mCKa2HyfigsJWZlMNs5M3G7wYxLmD_u0JbE5zPi87LDvMzr-P04VctLE7D_BkjebxqavH0iMOSTEdPb47Cijj8VHitvk0S9cmuVBJpAOsnA7f76z4356fI"/>
+<div class="absolute top-4 right-4 glass px-md py-sm rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="text-stats-numeric text-lg text-secondary">7.4<span class="text-xs ml-1 uppercase font-label-bold">km</span></span>
+</div>
+<!-- Route Overlay Interaction (Simulated) -->
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+</div>
+<div class="p-lg bg-surface-container-low/40 flex justify-between items-center border-t border-white/5">
+<div class="flex gap-xl">
+<button class="flex items-center gap-2 group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-error transition-colors">favorite</span>
+<span class="text-label-bold text-on-surface-variant group-hover:text-on-surface">142</span>
+</button>
+<button class="flex items-center gap-2 group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">chat_bubble</span>
+<span class="text-label-bold text-on-surface-variant group-hover:text-on-surface">24</span>
+</button>
+<button class="flex items-center gap-2 group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary transition-colors">share</span>
+<span class="text-label-bold text-on-surface-variant group-hover:text-on-surface">12</span>
+</button>
+</div>
+<button class="bg-primary-container text-on-primary-container px-md py-2 rounded-lg text-xs font-label-bold hover:bg-primary hover:text-on-primary transition-all active:scale-95">VIEW ROUTE MAP</button>
+</div>
+</article>
+<!-- Feed Item 2: Milestone -->
+<article class="glass rounded-xl overflow-hidden border-outline-variant/30 relative">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary shadow-[0_0_15px_rgba(74,225,118,0.5)]"></div>
+<div class="p-lg flex items-start justify-between">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a male marathon runner with salt-and-pepper hair, wearing professional compression gear and a smart sports watch. He is standing in an urban environment with soft bokeh city lights in the background. The aesthetic is clean, technical, and mature, matching a data-driven athletic platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU733ehiol0WJm1jHVcOv4wUaXXNlEkUNbUT_6bPjiu_pCR-aCcyn98qazyZxRReaGhrLYnEAORBO8wxIJk1JBOuww68me2bQbZ7wnvyDesgI4jccYNIMszw7-XBTMjbi1rp0S0P9g38Mosf6WgEM_YNK6WMYwBnI5buxAXkSg8wLpYEFox9ZjHOGMuueT3JmOQrK4pB06XZ8n9MhEB2c3m0r1opzG9n16lZmyYqK05P3ggHq-l3M9Kkv8oRR_hXxWY8ocp8xA98A"/>
+</div>
+<div>
+<p class="text-body-md font-bold text-on-surface leading-tight">Marcus Thorne</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-label-bold text-secondary">Milestone Reached</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-xs text-on-surface-variant">5h ago</span>
+</div>
+</div>
+<div class="px-lg pb-lg">
+<div class="bg-surface-container-highest/60 rounded-xl p-xl flex flex-col md:flex-row items-center gap-xl border border-secondary/20">
+<div class="relative">
+<div class="w-24 h-24 rounded-full border-8 border-secondary flex items-center justify-center neon-glow">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+</div>
+<div class="text-center md:text-left">
+<h3 class="text-headline-md font-headline-md text-on-surface">1,000 Kilometers Club</h3>
+<p class="text-body-md text-on-surface-variant">Marcus just completed his 1,000th kilometer this year. Join us in celebrating this elite achievement!</p>
+</div>
+</div>
+</div>
+<div class="px-lg pb-lg flex gap-md">
+<button class="bg-secondary/10 hover:bg-secondary/20 text-secondary border border-secondary/30 px-lg py-sm rounded-full text-xs font-label-bold transition-all">Congrats! 🎉</button>
+<button class="bg-surface-container-high/50 hover:bg-surface-container-high text-on-surface px-lg py-sm rounded-full text-xs font-label-bold transition-all">View Marcus's Profile</button>
+</div>
+</article>
+</div>
+<!-- Right Sidebar: Live Activity -->
+<aside class="hidden lg:block lg:col-span-3 space-y-lg">
+<section class="glass p-lg rounded-xl flex flex-col h-[calc(100vh-200px)] sticky top-24">
+<div class="flex justify-between items-center mb-lg">
+<h2 class="text-label-bold font-label-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-sm animate-pulse text-error">sensors</span>
+                        LIVE RUNNER ACTIVITY
+                    </h2>
+<span class="bg-error/20 text-error text-[10px] px-2 py-0.5 rounded-full font-label-bold">24 ONLINE</span>
+</div>
+<div class="flex-grow overflow-y-auto space-y-md hide-scrollbar pr-1">
+<!-- Live Item 1 -->
+<div class="flex items-center gap-md p-sm hover:bg-white/5 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-white/10">
+<div class="relative shrink-0">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/30">
+<img class="w-full h-full object-cover" data-alt="A close-up profile of a runner's face, glistening with sweat, focused intensely on the path ahead. The lighting is dramatic and moody, emphasizing performance and grit in a dark-mode environment. Deep blue and charcoal tones dominate the color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJWIP9p56bg-UecB6oCZKzRla3DmNEbsEVxlBtSH1djixI3Yjxa8_aoftASGjGZE1XHIO43j0hoLXfXgJ0DauHzN5jXZtRFqHeO41T-FQJZuEWaRN8q1muKNfVzS_xnMaM9G7tN0tF262S7wrp_0FMu_OyS5miABYywxu0DxWuFigQqfYKh3YI7BXH_1iD0nhHHXfwufQ89F3sQCDq2PNTTmJsARVVhZ710IuQrvZLfcVw-qbYMvYt9BQWah1c0-6JY7TSlw0g6BI"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-3 h-3 bg-secondary rounded-full border-2 border-surface animate-pulse"></div>
+</div>
+<div class="min-w-0">
+<p class="text-xs font-bold text-on-surface truncate">Alex Rivera</p>
+<p class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">location_on</span>
+                                Downtown Sprint • 4.2km
+                            </p>
+</div>
+</div>
+<!-- Live Item 2 -->
+<div class="flex items-center gap-md p-sm hover:bg-white/5 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-white/10">
+<div class="relative shrink-0">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/30">
+<img class="w-full h-full object-cover" data-alt="An action shot of an athlete's legs in motion, wearing neon-trimmed running shoes, mid-stride on a reflective urban street at night. The lighting is high-contrast with electric blue streaks, conveying speed and technical precision for a modern UI feed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOaqwJKdFJxiW6e54rzi3-eRkku5JM-xWlg2-m0-AgOcfalxyyuLdKY4QvCcfKvSyosVbBudiFNLQ7qgtonf8han8sQrobkV18KwjSGZv0pD07EzNh2EIlxPW1NLS3FFt_XYF9z_EtbN4hA4faWmslsPUIVmHz4_eWaNQykTKc721Q-BiPck2sHsb1h5NPv52wCmywOwP1dXaFotvPsnaHtQJwOQJlE0IN5zrjhFHuXprG7-iI9jK9Ps9ft1li0Qh1SVJAmLDX4nY"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-3 h-3 bg-secondary rounded-full border-2 border-surface animate-pulse"></div>
+</div>
+<div class="min-w-0">
+<p class="text-xs font-bold text-on-surface truncate">Dana Kim</p>
+<p class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">location_on</span>
+                                Hill Repeats • 1.8km
+                            </p>
+</div>
+</div>
+<!-- Live Item 3 -->
+<div class="flex items-center gap-md p-sm hover:bg-white/5 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-white/10">
+<div class="relative shrink-0">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/30">
+<img class="w-full h-full object-cover" data-alt="A portrait of a male runner wearing a high-vis neon yellow vest and headlamp, running through a dark forest trail. The scene is illuminated only by the headlamp and subtle blue moonbeams, creating a high-tech survival and performance vibe for an elite sports app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlE79dcQpw6A0bu0pkqBmHHEk9C6ZNngRfGOPglO9tAyiL2INefwK5vLzMwBqkwjlUfOC7T12U4WewgCGz00DHq7nmAbmLZGStByNmzvBvokHvUL1W9M2S8sPhJhnofFJ3ttDzFe_RhvqreOicyYkS7Dve9u6lZP4GqjpH6xIecN_4sntiTgAX3uV-laEipIq8QsptauZFKQMjPHN16hyMsFGtcQtMC3AUTDDpQLYkySAZ6JQhamNOH6LRBjcwiVdaW36lsfjHPeo"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-3 h-3 bg-secondary rounded-full border-2 border-surface animate-pulse"></div>
+</div>
+<div class="min-w-0">
+<p class="text-xs font-bold text-on-surface truncate">Sam Peterson</p>
+<p class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">location_on</span>
+                                Trail Run • 12.4km
+                            </p>
+</div>
+</div>
+</div>
+<div class="mt-lg pt-md border-t border-white/10">
+<button class="w-full py-sm bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container rounded-lg text-[10px] font-label-bold uppercase tracking-wider transition-all">Open Interactive Map</button>
+</div>
+</section>
+</aside>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-primary text-on-primary rounded-full shadow-2xl shadow-primary/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<!-- Footer -->
+<footer class="w-full px-xl py-xl grid grid-cols-1 md:grid-cols-4 gap-lg bg-surface-container-lowest border-t border-outline-variant">
+<div class="md:col-span-1">
+<span class="text-headline-md font-headline-md font-black text-primary block mb-md">RUN_INTELLIGENCE</span>
+<p class="text-on-surface-variant text-sm pr-lg">Precision performance tracking for the elite athlete. Every meter, every heartbeat, every discovery matters.</p>
+</div>
+<div>
+<h4 class="text-secondary font-bold text-sm mb-md uppercase tracking-wider">Platform</h4>
+<ul class="space-y-sm">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Explore</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Live Map</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Events</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-secondary font-bold text-sm mb-md uppercase tracking-wider">Resources</h4>
+<ul class="space-y-sm">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Support</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">API Docs</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">API Docs</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-secondary font-bold text-sm mb-md uppercase tracking-wider">Legal</h4>
+<ul class="space-y-sm">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Cookie Settings</a></li>
+</ul>
+</div>
+<div class="md:col-span-4 mt-xl pt-lg border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="text-xs text-on-surface-variant">© 2024 RUN_INTELLIGENCE. Precision Performance Tracking.</p>
+<div class="flex gap-lg">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">public</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">monitoring</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">share</span>
+</div>
+</div>
+</footer>
+<!-- Micro-interaction Scripts -->
+<script>
+        // Simple heartbeat for live status
+        setInterval(() => {
+            const sensors = document.querySelectorAll('.animate-pulse');
+            sensors.forEach(el => {
+                el.style.opacity = el.style.opacity === '0.5' ? '1' : '0.5';
+            });
+        }, 1500);
+
+        // Scroll Reveal effect for glass cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('article').forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+            observer.observe(card);
+        });
+    </script>
+</body></html>

@@ -1,0 +1,317 @@
+export default function EventsGroups() {
+  return (
+    <div dangerouslySetInnerHTML={{ __html: `
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-lg py-md max-w-full bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-primary/10">
+<div class="flex items-center gap-md">
+<span class="text-headline-md font-headline-md font-black text-primary tracking-tighter">RUN_INTELLIGENCE</span>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="/route-discovery">Explore</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="/dashboard">Live Map</a>
+<a class="text-primary font-label-bold border-b-2 border-primary pb-1" href="/events-groups">Events</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="/route-discovery">Routes</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="/community-feed">Community</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="/analytics">Analytics</a>
+</nav>
+<div class="flex items-center gap-sm">
+<div class="hidden sm:flex bg-surface-container-high rounded-full px-md py-xs items-center gap-sm border border-outline-variant/30">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm text-on-surface placeholder:text-on-surface-variant/50 w-32 lg:w-48" placeholder="Search events..." type="text"/>
+</div>
+<a href="/create-account" class="bg-primary-container text-on-primary-container px-lg py-sm rounded-full font-label-bold active:scale-95 transition-transform" style="display:inline-block;text-align:center;">Get Started</a>
+</div>
+</header>
+<main class="pt-24 pb-xl px-container-margin max-w-7xl mx-auto space-y-xl">
+<!-- Hero Section -->
+<section class="relative h-[320px] rounded-xl overflow-hidden mb-xl">
+
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+<div class="relative z-10 h-full flex flex-col justify-end p-xl max-w-2xl">
+<span class="bg-secondary/20 text-secondary border border-secondary/30 px-sm py-1 rounded-full text-[12px] font-label-bold w-fit mb-md">CITY SERIES 2024</span>
+<h1 class="font-display-lg text-display-lg mb-md text-white">Find Your Next <br/><span class="text-primary">Performance Peak.</span></h1>
+<p class="text-on-surface-variant font-body-lg max-w-lg">Discover curated marathons, local track meets, and elite running groups tuned to your precision metrics.</p>
+</div>
+</section>
+<!-- Main Discovery Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: Filters & Calendar -->
+<aside class="lg:col-span-4 space-y-lg">
+<!-- Mini Calendar -->
+<div class="glass-panel p-lg rounded-xl glow-blue">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface">September 2024</h3>
+<div class="flex gap-sm">
+<button class="material-symbols-outlined hover:text-primary transition-colors">chevron_left</button>
+<button class="material-symbols-outlined hover:text-primary transition-colors">chevron_right</button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center mb-md">
+<div class="text-on-surface-variant font-label-bold text-xs">M</div>
+<div class="text-on-surface-variant font-label-bold text-xs">T</div>
+<div class="text-on-surface-variant font-label-bold text-xs">W</div>
+<div class="text-on-surface-variant font-label-bold text-xs">T</div>
+<div class="text-on-surface-variant font-label-bold text-xs">F</div>
+<div class="text-secondary font-label-bold text-xs">S</div>
+<div class="text-secondary font-label-bold text-xs">S</div>
+</div>
+<div class="grid grid-cols-7 gap-1">
+<!-- Simplified Calendar Grid -->
+<div class="p-2 text-on-surface-variant/30 text-sm">28</div>
+<div class="p-2 text-on-surface-variant/30 text-sm">29</div>
+<div class="p-2 text-on-surface-variant/30 text-sm">30</div>
+<div class="p-2 text-on-surface-variant/30 text-sm">31</div>
+<div class="p-2 text-sm hover:bg-white/5 rounded-lg cursor-pointer">1</div>
+<div class="p-2 text-sm hover:bg-white/5 rounded-lg cursor-pointer">2</div>
+<div class="p-2 text-sm hover:bg-white/5 rounded-lg cursor-pointer">3</div>
+<div class="p-2 text-sm hover:bg-white/5 rounded-lg cursor-pointer">4</div>
+<div class="p-2 text-sm hover:bg-white/5 rounded-lg cursor-pointer font-bold border border-primary/30 text-primary">5</div>
+<div class="p-2 text-sm hover:bg-white/5 rounded-lg cursor-pointer">6</div>
+<div class="p-2 text-sm hover:bg-white/5 rounded-lg cursor-pointer">7</div>
+<div class="p-2 text-sm hover:bg-white/5 rounded-lg cursor-pointer bg-primary text-on-primary">8</div>
+<div class="p-2 text-sm hover:bg-white/5 rounded-lg cursor-pointer">9</div>
+<div class="p-2 text-sm hover:bg-white/5 rounded-lg cursor-pointer">10</div>
+<!-- ... more days -->
+<div class="p-2 text-sm bg-secondary/10 text-secondary rounded-lg">15</div>
+</div>
+<div class="mt-lg pt-md border-t border-white/5 space-y-md">
+<div class="flex items-start gap-md">
+<div class="w-1 h-10 bg-primary rounded-full"></div>
+<div>
+<p class="text-sm font-label-bold">Sunset 10K Series</p>
+<p class="text-xs text-on-surface-variant">Today • 18:30 PM</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<div class="w-1 h-10 bg-secondary rounded-full"></div>
+<div>
+<p class="text-sm font-label-bold">London Marathon</p>
+<p class="text-xs text-on-surface-variant">Sep 15 • 08:00 AM</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Filters -->
+<div class="glass-panel p-lg rounded-xl">
+<h3 class="font-label-bold text-on-surface mb-md">Event Type</h3>
+<div class="space-y-sm">
+<label class="flex items-center gap-md cursor-pointer group">
+<input checked="" class="rounded border-outline-variant bg-surface text-primary focus:ring-primary ring-offset-surface" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-on-surface transition-colors">Marathons &amp; Races</span>
+</label>
+<label class="flex items-center gap-md cursor-pointer group">
+<input checked="" class="rounded border-outline-variant bg-surface text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-on-surface transition-colors">Social Club Runs</span>
+</label>
+<label class="flex items-center gap-md cursor-pointer group">
+<input class="rounded border-outline-variant bg-surface text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-on-surface transition-colors">Training Sessions</span>
+</label>
+</div>
+<h3 class="font-label-bold text-on-surface mt-lg mb-md">Radius</h3>
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+<div class="flex justify-between text-[10px] font-label-bold text-on-surface-variant mt-sm">
+<span>5 KM</span>
+<span>50 KM</span>
+<span>ANYWHERE</span>
+</div>
+</div>
+</aside>
+<!-- Right Column: List & Map Toggle -->
+<section class="lg:col-span-8 space-y-lg">
+<!-- Tab Switching -->
+<div class="flex justify-between items-center">
+<div class="flex bg-surface-container-low p-1 rounded-lg border border-outline-variant/30">
+<button class="bg-surface-bright text-on-surface px-lg py-sm rounded-md font-label-bold flex items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">list</span> Lists
+                        </button>
+<button class="text-on-surface-variant hover:text-on-surface px-lg py-sm rounded-md font-label-bold flex items-center gap-sm transition-colors">
+<span class="material-symbols-outlined text-[18px]">map</span> Map View
+                        </button>
+</div>
+<div class="text-on-surface-variant text-sm">
+                        Showing <span class="text-on-surface font-label-bold">24</span> upcoming events near <span class="text-primary font-label-bold">San Francisco</span>
+</div>
+</div>
+<!-- Featured Clubs -->
+<div class="space-y-md">
+<h2 class="font-headline-md text-headline-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">groups</span> Top Running Clubs
+                    </h2>
+<div class="flex gap-md overflow-x-auto pb-md hide-scrollbar">
+<!-- Club Card 1 -->
+<div class="min-w-[280px] bg-surface-container-low rounded-xl p-md border border-outline-variant/20 hover:border-primary/50 transition-all group shrink-0">
+<div class="w-full h-32 rounded-lg bg-surface mb-md relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A cinematic overhead shot of a diverse group of runners sprinting through a neon-lit urban bridge at dusk. The lighting is dominated by deep blues and vibrant electric blue highlights, mirroring a high-performance athletic brand aesthetic. The scene is shot with high-speed photography, capturing the raw energy and dynamic motion of the athletes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEx8P_pMq-yHgd0T2U_LLVsIFvBBBWfOjDCgH5AE1YwjeISr2lBXmX4i1cx__VTO3SQaHRcrcCFzju5BPn-AR-6nGdLpb1QcZq61kS6q2l6G_anqz4tPLJ74uCgMeeIFm3T00RtdEGAxgxE3XWytyzj7RKZBAIM03bzbHYLV9rhNmCvv1kjmyE8zA_Fy-KG90KzTbnvD_rYyn1MiUCtON-QlosrvKLqBUMZTTmhsNCXuegk77xgVl85hQnyT0yu1ZQOXDzcAv5Gw0"/>
+<div class="absolute top-2 right-2 bg-surface/80 backdrop-blur px-sm py-1 rounded-full text-[10px] font-bold">4.9 ★</div>
+</div>
+<h4 class="font-headline-md text-sm mb-1">Velocity Elite Track</h4>
+<p class="text-xs text-on-surface-variant mb-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Dogpatch, SF
+                            </p>
+<div class="flex justify-between items-center">
+<span class="text-[12px] font-label-bold text-secondary">312 Members</span>
+<button class="bg-surface-bright hover:bg-primary-container hover:text-on-primary-container px-md py-1 rounded-full text-xs font-label-bold transition-all">Join</button>
+</div>
+</div>
+<!-- Club Card 2 -->
+<div class="min-w-[280px] bg-surface-container-low rounded-xl p-md border border-outline-variant/20 hover:border-primary/50 transition-all group shrink-0">
+<div class="w-full h-32 rounded-lg bg-surface mb-md relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional group portrait of marathon runners wearing coordinated high-tech black and neon green apparel. They are standing on a sleek, modern running track with digital lap counters visible in the background. The lighting is dramatic and moody, with cool-toned studio lighting that emphasizes muscle definition and high-end performance gear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgFZCZhqE1t9vU6ddYY7_MPoKvn_tmVuuoyVhRkKBY8Ufz2EXN3p-0ZLRzlLQbb1Cmy0KKoFNT6s9uMXHJ0PM6w7aDD-scoWu9ULwXDR8aqKrGQva8Fe5Uj3Te3NEFxHhzAqFHxhGEQJtYx3U9JspPMHk26I3zPiSJZzsKoyNsIgpseF6GwCBy6DEb9YzeQCgjcmUJbAztDx31kqNr5SpPFT0Vs6fHvXl-bzJjyLtkQ-kMRdI7A7iHCAbgOPthk0J_zIFVLMafA08"/>
+<div class="absolute top-2 right-2 bg-surface/80 backdrop-blur px-sm py-1 rounded-full text-[10px] font-bold">4.7 ★</div>
+</div>
+<h4 class="font-headline-md text-sm mb-1">Midnight Miles SF</h4>
+<p class="text-xs text-on-surface-variant mb-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Mission District, SF
+                            </p>
+<div class="flex justify-between items-center">
+<span class="text-[12px] font-label-bold text-secondary">854 Members</span>
+<button class="bg-surface-bright hover:bg-primary-container hover:text-on-primary-container px-md py-1 rounded-full text-xs font-label-bold transition-all">Join</button>
+</div>
+</div>
+<!-- Club Card 3 -->
+<div class="min-w-[280px] bg-surface-container-low rounded-xl p-md border border-outline-variant/20 hover:border-primary/50 transition-all group shrink-0">
+<div class="w-full h-32 rounded-lg bg-surface mb-md relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A scenic wide-angle view of a group of trail runners navigating a rugged, mountainous ridge at sunrise. The landscape is bathed in soft golden hour light, contrasting with the sharp, technical silhouettes of the runners. The visual style is premium and cinematic, highlighting the connection between high-performance training and natural exploration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0urjuCn8dx4tabfpsZdu7y0SJsVVppFa501MeqapoV-NGsauGM2MEahB8BCJLpPtlPuAWMoJ-BjXu77vtmJJZSWfwFJtDeyHXECJ-_2DPEZFqdlk23QNdmVQsJaNi-RURlP81GrRVqY3M6Sx1S05owhbmWAOFHtHuoW9WOVvxlvAzX9WqpyQNHrB6nYm38O487VHNHPYW9fnChW3MxS0BcRAXseOFE_vV_6amOcOA_BE4XrE2m0b-rBaxhY0OAtRYX5SwcFJD7yQ"/>
+<div class="absolute top-2 right-2 bg-surface/80 backdrop-blur px-sm py-1 rounded-full text-[10px] font-bold">5.0 ★</div>
+</div>
+<h4 class="font-headline-md text-sm mb-1">Coastal Trail Runners</h4>
+<p class="text-xs text-on-surface-variant mb-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Marin Headlands
+                            </p>
+<div class="flex justify-between items-center">
+<span class="text-[12px] font-label-bold text-secondary">156 Members</span>
+<button class="bg-surface-bright hover:bg-primary-container hover:text-on-primary-container px-md py-1 rounded-full text-xs font-label-bold transition-all">Join</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Events List (Bento-ish) -->
+<div class="space-y-md">
+<h2 class="font-headline-md text-headline-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">calendar_month</span> Upcoming Main Events
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Event 1: Heroish Card -->
+<div class="md:col-span-2 glass-panel rounded-xl flex flex-col md:flex-row overflow-hidden group hover:glow-blue transition-all">
+<div class="md:w-1/3 h-48 md:h-auto relative">
+<img class="w-full h-full object-cover" data-alt="A dramatic close-up of a marathon finish line tape being broken by a professional athlete. The background is a blur of ecstatic crowds and city skyline, rendered in a sophisticated dark-mode aesthetic. High-contrast lighting focuses on the athlete's intense expression and the vibrant primary blue of their jersey. The overall atmosphere is triumphant and high-stakes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmz6X5Ynbv7O2G1cT6nbaTBqmcGsnYC2nT61rWXZMKPBbqGxeowgZ2f2neIsE2QnRI6pwtrVFfFaKotAHIhDXIc6GfLVwLgfES0c3W6uYTjzKOYsDCMNkfJnDvIrTffAqkiTzKEBK0wlf5h5yjfEAkgiE2NeZhBIgSkySd3rRrH9VVc7sZRkWtp_0E3lWUgi0RfTN_gUs6-SA6jLFxWkcIZ-8MC4lrlzSUqzaoKBpT70-LCd6k9_hmLUPkALCi0dEDwtrdDZe4v9U"/>
+<div class="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="p-lg flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-md">
+<div>
+<p class="text-secondary font-label-bold text-sm tracking-widest uppercase">MARATHON • MAJOR</p>
+<h3 class="font-headline-lg text-headline-lg text-white">San Francisco City Marathon</h3>
+</div>
+<div class="bg-surface-bright p-sm rounded-lg text-center min-w-[60px]">
+<p class="text-[10px] font-label-bold text-on-surface-variant">SEP</p>
+<p class="text-xl font-black text-primary">15</p>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-md">The premier coastal marathon. Experience the Golden Gate Bridge crossing and a technical downtown finish line. Precision timing included for all participants.</p>
+<div class="flex flex-wrap gap-md mb-md">
+<div class="flex items-center gap-sm text-xs text-on-surface-variant bg-white/5 px-md py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px]">distance</span> 42.2 KM
+                                        </div>
+<div class="flex items-center gap-sm text-xs text-on-surface-variant bg-white/5 px-md py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px]">terrain</span> Elevation: 240m
+                                        </div>
+<div class="flex items-center gap-sm text-xs text-on-surface-variant bg-white/5 px-md py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px]">group</span> 12.5k Registered
+                                        </div>
+</div>
+</div>
+<div class="flex gap-md">
+<button class="flex-1 bg-primary text-on-primary py-md rounded-xl font-label-bold hover:scale-[1.02] active:scale-95 transition-transform">Register Now</button>
+<button class="px-md bg-surface-bright rounded-xl material-symbols-outlined hover:text-primary">favorite</button>
+</div>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-lg flex flex-col justify-between hover:bg-surface-container transition-colors group">
+<div>
+<div class="flex justify-between items-start mb-lg">
+<div class="bg-primary/10 text-primary w-12 h-12 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">speed</span>
+</div>
+<div class="text-right">
+<p class="text-xs font-label-bold text-on-surface-variant">FRI, SEP 20</p>
+<p class="text-xs text-secondary">5 SPOTS LEFT</p>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-sm group-hover:text-primary transition-colors">Mission Track Trials</h4>
+<p class="text-sm text-on-surface-variant mb-lg">High-intensity speed intervals led by Olympic-level pacers. Limited to 20 runners per wave.</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-stats-numeric text-xl">\$15.00</span>
+<button class="bg-white/10 hover:bg-white/20 text-on-surface px-lg py-sm rounded-lg font-label-bold transition-all">Secure Spot</button>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-lg flex flex-col justify-between hover:bg-surface-container transition-colors group">
+<div>
+<div class="flex justify-between items-start mb-lg">
+<div class="bg-tertiary/10 text-tertiary w-12 h-12 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">dark_mode</span>
+</div>
+<div class="text-right">
+<p class="text-xs font-label-bold text-on-surface-variant">SAT, SEP 21</p>
+<p class="text-xs text-on-surface-variant">OPEN INVITE</p>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-sm group-hover:text-primary transition-colors">Lunar Night Run</h4>
+<p class="text-sm text-on-surface-variant mb-lg">A 15K social run through Golden Gate Park. Headlamps and neon gear required. Social at the finish.</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-stats-numeric text-xl">FREE</span>
+<button class="bg-white/10 hover:bg-white/20 text-on-surface px-lg py-sm rounded-lg font-label-bold transition-all">RSVP</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full px-xl py-xl grid grid-cols-1 md:grid-cols-4 gap-lg bg-surface-container-lowest border-t border-outline-variant">
+<div class="space-y-md">
+<span class="text-headline-md font-headline-md font-black text-primary">RUN_INTELLIGENCE</span>
+<p class="text-on-surface-variant text-sm">© 2024 RUN_INTELLIGENCE. Precision Performance Tracking. Empowering athletes with spatial data and community driven intelligence.</p>
+</div>
+<div>
+<h4 class="text-on-surface font-label-bold mb-md">Product</h4>
+<ul class="space-y-sm">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Precision Tracking</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Dynamic Maps</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Elite Groups</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">API Docs</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-on-surface font-label-bold mb-md">Company</h4>
+<ul class="space-y-sm">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Cookie Settings</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-on-surface font-label-bold mb-md">Newsletter</h4>
+<p class="text-on-surface-variant text-xs mb-md">Get curated race lists delivered to your inbox.</p>
+<div class="flex gap-2">
+<input class="bg-surface-container-high border border-outline-variant rounded-lg px-md py-sm text-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none flex-1" placeholder="Email" type="email"/>
+<button class="bg-primary-container text-on-primary-container p-sm rounded-lg material-symbols-outlined">send</button>
+</div>
+</div>
+</footer>
+<!-- FAB for quick event creation -->
+<button class="fixed bottom-lg right-lg w-14 h-14 bg-primary text-on-primary rounded-full shadow-xl shadow-primary/20 flex items-center justify-center group active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[32px] group-hover:rotate-90 transition-transform duration-300">add</span>
+</button>
+
+` }} />
+  );
+}
